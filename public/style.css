@@ -1,0 +1,74 @@
+/* Reset some defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff55;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #00d9ff;
+  border-radius: 12px;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 100px;
+  transition: background-color 0.2s, transform 0.1s;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+#status {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+#restartBtn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #00d9ff;
+  border: none;
+  border-radius: 8px;
+  color: #0f2027;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 217, 255, 0.3);
+}
+
+#restartBtn:hover {
+  background-color: #00b8d9;
+}
