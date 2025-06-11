@@ -58,9 +58,23 @@ io.on("connection", (socket) => {
       waitingPlayer = null;
     }
   });
+
+  socket.on("requestRestart", () => {
+    const player = players[socket.id];
+    if (player && player.room) {
+      const room = player.room;
+      const clientsInRoom = io.sockets.adapter.rooms.get(room);
+      if (clientsInRoom) {
+        for (const socketId of clientsInRoom) {
+          io.to(socketId).emit("restartGame");
+        }
+      }
+    }
+  });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

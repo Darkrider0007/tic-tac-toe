@@ -110,7 +110,9 @@ restartBtn.addEventListener("click", () => {
 // Socket event: restart the game
 socket.on("restartGame", () => {
   document.querySelectorAll(".cell").forEach((cell) => (cell.textContent = ""));
-  isMyTurn = mySymbol === "X";
-  statusText.textContent = isMyTurn ? "Your turn (X)" : "Opponent's turn (X)";
   restartBtn.style.display = "none";
+  isMyTurn = mySymbol === "X";
+  statusText.textContent = isMyTurn
+    ? `Your turn (${mySymbol})`
+    : `Opponent's turn (${mySymbol})`;
 });
